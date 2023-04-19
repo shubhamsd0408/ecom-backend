@@ -3,9 +3,10 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 const url = 'mongodb://localhost/neodbx';
+const uric = "mongodb+srv://svmane7171:SYuBWf1X0Ux6tmpI@cluster0.ogupfhz.mongodb.net/test?retryWrites=true&w=majority"
 const app = express();
 
-mongoose.connect(url,{useNewUrlParser:true});
+mongoose.connect(uric,{useNewUrlParser:true});
 
 const con = mongoose.connection;
 

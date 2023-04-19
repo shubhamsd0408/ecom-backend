@@ -4,7 +4,11 @@ const cartSchema = new mongoose.Schema({
     _id:{
         type: String,
         required: true
-    }
+    },
+    _uid:{
+        type: String,
+        required: true
+    },
     
     // image:{
     //     type: String,

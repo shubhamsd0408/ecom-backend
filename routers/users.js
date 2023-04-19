@@ -36,11 +36,8 @@ router.post('/login', async (req, res) =>{
     }
     else{
         if(userData.password === user.password){
-           
             let token = jwt.sign({email : userData.email}, 'secret',{expiresIn:'3h'});
-             res.json(
-               token
-            )
+             res.json({token,user});
         //    res.send(data)
         }
         else{
@@ -57,9 +54,10 @@ router.post('/login', async (req, res) =>{
 // Add to cart
 
 router.post('/addcart', async(req,res)=>{
-    console.log(req.body._id);
+    // console.log(req.body,"abcd");
     const cart = new Cart({
-        _id: req.body
+        _id: req.body._id,
+        _uid: req.body._uid
         // image: req.body.image,
         // p_name: req.body.p_name,
         // quantity: req.body.quantity,
@@ -83,6 +81,8 @@ router.get('/', async (req,res)=>{
         res.send('Error', + err)
     }
 })
+
+
 
 // Delete items
 
